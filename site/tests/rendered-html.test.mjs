@@ -2,13 +2,13 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-async function render() {
+async function render(pathname = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
 
   return worker.fetch(
-    new Request("http://localhost/", {
+    new Request(`http://localhost${pathname}`, {
       headers: { accept: "text/html" },
     }),
     {
@@ -33,7 +33,7 @@ test("server-renders the Sailvage site shell and primary sections", async () => 
   assert.match(html, /data-ark-theme="ark"/i);
   assert.match(html, /data-ark-depth="complex"/i);
   assert.match(html, /<title>波下乐土 Sailvage \| Studio EmpteX<\/title>/i);
-  assert.match(html, /<main class="site-shell"/i);
+  assert.match(html, /<main class="site-shell locale-zh"/i);
   assert.match(html, /<nav aria-label="主导航"/i);
   assert.match(html, /<section class="hero" id="home"/i);
   assert.match(html, /<section class="pv-section section-pad" id="pv"/i);
@@ -47,10 +47,25 @@ test("server-renders the Sailvage site shell and primary sections", async () => 
   assert.doesNotMatch(html, /codex-preview|sites-skeleton/i);
 });
 
+test("server-renders the complete English route and language switch", async () => {
+  const response = await render("/en");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /<title>Sailvage \| Studio EmpteX<\/title>/i);
+  assert.match(html, /<main class="site-shell locale-en" lang="en"/i);
+  assert.match(html, /<nav aria-label="Primary navigation"/i);
+  assert.match(html, />GAMEPLAY<\/a>/i);
+  assert.match(html, />CHARACTERS<\/a>/i);
+  assert.match(html, /Beneath sunlit waves, everyone&#x27;s secrets begin to surface\./i);
+  assert.match(html, /OPERATIONS DIVISION \/ B-RANK AGENT/i);
+  assert.match(html, /href="\/" hrefLang="zh-CN"/i);
+});
+
 test("keeps the Ark polish responsive and accessible", async () => {
   const [css, page, layout] = await Promise.all([
     readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
-    readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/sailvage-page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
   ]);
 

@@ -177,17 +177,31 @@ img {
 }
 
 .language-switch {
+  align-items: center;
   background: rgba(16, 24, 30, 0.04);
   border: 1px solid var(--ink);
   clip-path: var(--control-parallelogram);
   color: var(--muted);
-  cursor: not-allowed;
+  cursor: pointer;
+  display: inline-flex;
   font-family: var(--font-tech);
   font-size: 12px;
   font-weight: 800;
+  justify-content: center;
   letter-spacing: 0.14em;
   min-height: 40px;
   padding: 9px 14px;
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms var(--ease-direct);
+}
+
+.language-switch:hover,
+.language-switch:focus-visible {
+  background: var(--ink);
+  color: white;
+  transform: translateY(-2px);
 }
 
 .hero {
@@ -734,7 +748,7 @@ img {
   z-index: 3;
 }
 
-.character-file .name-cn {
+.character-file .name-primary {
   color: white;
   display: block;
   position: relative;
@@ -743,7 +757,7 @@ img {
   z-index: 1;
 }
 
-.character-file .name-cn::before {
+.character-file .name-primary::before {
   color: transparent;
   content: attr(data-name);
   inset: 0;
@@ -758,7 +772,7 @@ img {
   -webkit-text-stroke: 3px var(--ink);
 }
 
-.character-file .name-en {
+.character-file .name-secondary {
   color: white;
   display: block;
   font-family: var(--font-song);
@@ -768,9 +782,41 @@ img {
   margin-top: -18px;
   text-shadow:
     -1px -1px 0 var(--ink),
-  1px -1px 0 var(--ink),
+    1px -1px 0 var(--ink),
     -1px 1px 0 var(--ink),
     1px 1px 0 var(--ink);
+}
+
+.locale-en .section-heading h2,
+.locale-en .feature-copy h3,
+.locale-en .contact-panel h2 {
+  font-family: var(--font-tech);
+  font-weight: 900;
+}
+
+.locale-en .section-heading h2 {
+  letter-spacing: -0.04em;
+}
+
+.locale-en .feature-copy h3 {
+  letter-spacing: -0.025em;
+}
+
+.locale-en .pv-copy p {
+  white-space: normal;
+}
+
+.locale-en .character-file h3 {
+  font-family: var(--font-song);
+  letter-spacing: -0.035em;
+}
+
+.locale-en .character-file .name-secondary {
+  letter-spacing: 0.08em;
+}
+
+.locale-en .character-file .role {
+  letter-spacing: 0.045em;
 }
 
 .character-file .intro {
