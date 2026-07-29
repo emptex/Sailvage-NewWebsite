@@ -561,10 +561,7 @@ export default function EnglishPage() {
                     alt=""
                   />
                   <span>
-                    <strong>
-                      {isEnglish ? character.nameEn : character.nameCn}
-                    </strong>
-                    {isEnglish ? character.nameCn : character.nameEn}
+                    <strong>{character.nameEn}</strong>
                   </span>
                 </button>
               );
@@ -624,7 +621,7 @@ export default function EnglishPage() {
             </div>
 
             <div className="character-file" aria-live="polite">
-              <h3>
+              <h3 aria-label={activeCharacter.nameEn}>
                 <span
                   className="name-primary"
                   data-name={
@@ -633,14 +630,7 @@ export default function EnglishPage() {
                       : activeCharacter.nameCn
                   }
                 >
-                  {isEnglish
-                    ? activeCharacter.nameEn
-                    : activeCharacter.nameCn}
-                </span>
-                <span className="name-secondary">
-                  {isEnglish
-                    ? activeCharacter.nameCn
-                    : activeCharacter.nameEn}
+                  {activeCharacter.nameEn}
                 </span>
               </h3>
               <div className="file-body">

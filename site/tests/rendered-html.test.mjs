@@ -61,6 +61,9 @@ test("server-renders the complete English route and language switch", async () =
   assert.match(html, /EXPEDITION \/ B-RANK AGENT/i);
   assert.match(html, /\/assets\/logos\/sailvage\.png/i);
   assert.doesNotMatch(html, /\/assets\/logos\/sailvage-cn\.png/i);
+  assert.doesNotMatch(html, />专员</i);
+  assert.doesNotMatch(html, />三宅光</i);
+  assert.doesNotMatch(html, />希普赛尔·雷莫西</i);
   assert.match(html, /href="\/" hrefLang="zh-CN"/i);
 });
 

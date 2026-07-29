@@ -788,11 +788,11 @@ img {
 }
 
 .locale-en .section-heading h2 {
-  letter-spacing: -0.04em;
+  letter-spacing: 0.02em;
 }
 
 .locale-en .feature-copy h3 {
-  letter-spacing: -0.025em;
+  letter-spacing: 0.02em;
 }
 
 .locale-en .pv-copy p {
@@ -810,6 +810,10 @@ img {
 
 .locale-en .character-file .role {
   letter-spacing: 0.045em;
+}
+
+.locale-en .contact-panel h2 {
+  letter-spacing: 0.02em;
 }
 
 .character-file .intro {
