@@ -81,8 +81,18 @@ test("keeps the Ark polish responsive and accessible", async () => {
   assert.match(css, /\.character-file\s*\{/);
   assert.match(
     css,
-    /\.locale-en \.feature-copy h3\s*\{[^}]*font-family:\s*var\(--font-serif\)/s,
+    /\.section-heading h2\s*\{[^}]*font-family:\s*var\(--font-serif\)/s,
   );
+  assert.match(
+    css,
+    /\.feature-copy h3\s*\{[^}]*font-family:\s*var\(--font-serif\)/s,
+  );
+  assert.match(
+    css,
+    /\.contact-panel h2\s*\{[^}]*font-family:\s*var\(--font-serif\)/s,
+  );
+  assert.doesNotMatch(css, /\.locale-en [^{]*(?:section-heading|contact-panel)[^{]*\{[^}]*font-family:/s);
+  assert.doesNotMatch(css, /\.locale-en \.feature-copy h3\s*\{[^}]*font-family:/s);
   assert.doesNotMatch(css, /\.character-tabs button::after/);
 
   assert.match(page, /aria-pressed=\{isActive\}/);

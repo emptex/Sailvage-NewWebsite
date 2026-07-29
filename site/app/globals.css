@@ -787,19 +787,11 @@ img {
     1px 1px 0 var(--ink);
 }
 
-.locale-en .section-heading h2,
-.locale-en .contact-panel h2 {
-  font-family: var(--font-tech);
-  font-weight: 900;
-}
-
 .locale-en .section-heading h2 {
   letter-spacing: -0.04em;
 }
 
 .locale-en .feature-copy h3 {
-  font-family: var(--font-serif);
-  font-weight: 400;
   letter-spacing: -0.025em;
 }
 
