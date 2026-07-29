@@ -94,6 +94,14 @@ test("keeps the Ark polish responsive and accessible", async () => {
   );
   assert.match(
     css,
+    /\.character-file \.role\s*\{[^}]*transform:\s*translateY\(-20px\)/s,
+  );
+  assert.match(
+    css,
+    /\.contact-actions a\s*\{[^}]*font-weight:\s*400/s,
+  );
+  assert.match(
+    css,
     /\.section-heading h2\s*\{[^}]*font-family:\s*var\(--font-serif\)/s,
   );
   assert.match(
@@ -121,6 +129,8 @@ test("keeps the Ark polish responsive and accessible", async () => {
     englishPage,
     /DEPARTMENT OF ECOLOGY \/ DEPARTMENT HEAD/,
   );
+  assert.match(englishPage, /DEPARTMENT OF ECOLOGY \/ ADVISOR HEAD/);
+  assert.doesNotMatch(englishPage, /SENIOR ADVISOR|ADIVSOR/);
   assert.match(
     englishPage,
     /DEPARTMENT OF ECOLOGY \/ ECOLOGICAL MONITORING DIVISION DIRECTOR/,

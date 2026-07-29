@@ -731,6 +731,7 @@ img {
   letter-spacing: 0.08em;
   margin: 0 0 16px;
   text-shadow: 0 1px 2px rgba(6, 18, 25, 0.72);
+  transform: translateY(-20px);
 }
 
 .character-file h3 {
@@ -949,7 +950,7 @@ img {
   clip-path: var(--control-parallelogram);
   color: var(--ink);
   font-size: 14px;
-  font-weight: 900;
+  font-weight: 400;
   min-height: 48px;
   padding: 13px 20px 13px 23px;
   transition:

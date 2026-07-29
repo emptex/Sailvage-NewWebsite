@@ -83,7 +83,7 @@ const characters: Character[] = [
     nameEn: "Lin Ye",
     role: {
       zh: "生态部／总顾问",
-      en: "DEPARTMENT OF ECOLOGY / SENIOR ADVISOR",
+      en: "DEPARTMENT OF ECOLOGY / ADVISOR HEAD",
     },
     intro: {
       zh: "她有足够多的耐心，足够多的爱意去守护那片梦中无限延伸的森林。",
