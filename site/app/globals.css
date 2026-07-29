@@ -788,10 +788,12 @@ img {
 }
 
 .locale-en .section-heading h2 {
+  font-size: clamp(48px, 5.9vw, 96px);
   letter-spacing: 0.02em;
 }
 
 .locale-en .feature-copy h3 {
+  font-size: clamp(28px, calc(2.15vw + 6px), 42px);
   letter-spacing: 0.02em;
 }
 
@@ -813,6 +815,7 @@ img {
 }
 
 .locale-en .contact-panel h2 {
+  font-size: clamp(44px, 4.6vw, 76px);
   letter-spacing: 0.02em;
 }
 
