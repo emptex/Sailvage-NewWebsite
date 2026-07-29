@@ -27,11 +27,11 @@ const characters: Character[] = [
     nameEn: "Agent",
     role: {
       zh: "执行部／B级专员",
-      en: "OPERATIONS DIVISION / B-RANK AGENT",
+      en: "EXPEDITION / B-RANK AGENT",
     },
     intro: {
       zh: "你是一个新入职的执行部专员，你勤勤恳恳上班，偷偷摸摸划水，偶尔找点刺激！",
-      en: "A newly hired Operations agent: diligent on the clock, discreetly slacking off, and always ready for the occasional thrill.",
+      en: "A newly hired Expedition agent: diligent on the clock, discreetly slacking off, and always ready for the occasional thrill.",
     },
     quote: {
       zh: "阳光沙滩椰子鸡……好工作啊！",
@@ -45,7 +45,7 @@ const characters: Character[] = [
     nameEn: "Miyake Hikaru",
     role: {
       zh: "生态部／部长",
-      en: "ECOLOGY DIVISION / DIRECTOR",
+      en: "ECOLOGY / DIRECTOR",
     },
     intro: {
       zh: "剪除徒长的枝条，维系庭院的繁荣。可能并非看起来那样不近人情。",
@@ -65,7 +65,7 @@ const characters: Character[] = [
     nameEn: "Selene Mactons",
     role: {
       zh: "生态部／生态监测科主任",
-      en: "ECOLOGY DIVISION / HEAD OF MONITORING",
+      en: "ECOLOGY / HEAD OF ECOLOGICAL MONITORING",
     },
     intro: {
       zh: "喜欢听一些闲话。而足够精彩的闲话能换取不菲的利益。",
@@ -83,7 +83,7 @@ const characters: Character[] = [
     nameEn: "Lin Ye",
     role: {
       zh: "生态部／总顾问",
-      en: "ECOLOGY DIVISION / SENIOR ADVISOR",
+      en: "ECOLOGY / SENIOR ADVISOR",
     },
     intro: {
       zh: "她有足够多的耐心，足够多的爱意去守护那片梦中无限延伸的森林。",
@@ -101,7 +101,7 @@ const characters: Character[] = [
     nameEn: "Vasco Sousa",
     role: {
       zh: "海洋部／海洋资源科主任",
-      en: "MARINE DIVISION / HEAD OF RESOURCES",
+      en: "OCEANOGRAPHY / HEAD OF MARINE RESOURCES",
     },
     intro: {
       zh: "是个世俗的人，比起宏大的人类理想，他更在意人与人之间质朴的感情。",
@@ -119,7 +119,7 @@ const characters: Character[] = [
     nameEn: "Cypsel Lemus",
     role: {
       zh: "执行部／EX级专员",
-      en: "OPERATIONS DIVISION / EX-RANK AGENT",
+      en: "EXPEDITION / EX-RANK AGENT",
     },
     intro: {
       zh: "一个肾上腺素爱好者。永远在路上，永远不停歇。",
@@ -139,7 +139,7 @@ const characters: Character[] = [
     nameEn: "Unati Woodfire",
     role: {
       zh: "生态部／微观生态科研究员",
-      en: "ECOLOGY DIVISION / MICROECOLOGY RESEARCHER",
+      en: "ECOLOGY / MICROECOLOGY RESEARCHER",
     },
     intro: {
       zh: "新生代研究员，在一切奇异的领域有着超乎常人的热情。",
@@ -374,7 +374,11 @@ export default function SailvagePage({ locale = "zh" }: { locale?: Locale }) {
           aria-label={isEnglish ? "Back to home" : "返回首页"}
         >
           <img
-            src={assetPath("/assets/logos/sailvage-cn.png")}
+            src={assetPath(
+              isEnglish
+                ? "/assets/logos/sailvage.png"
+                : "/assets/logos/sailvage-cn.png",
+            )}
             alt={copy.brandAlt}
           />
         </a>

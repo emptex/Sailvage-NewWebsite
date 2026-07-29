@@ -788,7 +788,6 @@ img {
 }
 
 .locale-en .section-heading h2,
-.locale-en .feature-copy h3,
 .locale-en .contact-panel h2 {
   font-family: var(--font-tech);
   font-weight: 900;
@@ -799,6 +798,8 @@ img {
 }
 
 .locale-en .feature-copy h3 {
+  font-family: var(--font-serif);
+  font-weight: 400;
   letter-spacing: -0.025em;
 }
 

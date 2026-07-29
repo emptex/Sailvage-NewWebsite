@@ -58,7 +58,9 @@ test("server-renders the complete English route and language switch", async () =
   assert.match(html, />GAMEPLAY<\/a>/i);
   assert.match(html, />CHARACTERS<\/a>/i);
   assert.match(html, /Beneath sunlit waves, everyone&#x27;s secrets begin to surface\./i);
-  assert.match(html, /OPERATIONS DIVISION \/ B-RANK AGENT/i);
+  assert.match(html, /EXPEDITION \/ B-RANK AGENT/i);
+  assert.match(html, /\/assets\/logos\/sailvage\.png/i);
+  assert.doesNotMatch(html, /\/assets\/logos\/sailvage-cn\.png/i);
   assert.match(html, /href="\/" hrefLang="zh-CN"/i);
 });
 
@@ -77,9 +79,16 @@ test("keeps the Ark polish responsive and accessible", async () => {
   assert.match(css, /@media\s*\(max-width:\s*1240px\)/);
   assert.match(css, /@media\s*\(max-width:\s*760px\)/);
   assert.match(css, /\.character-file\s*\{/);
+  assert.match(
+    css,
+    /\.locale-en \.feature-copy h3\s*\{[^}]*font-family:\s*var\(--font-serif\)/s,
+  );
   assert.doesNotMatch(css, /\.character-tabs button::after/);
 
   assert.match(page, /aria-pressed=\{isActive\}/);
+  assert.match(page, /ECOLOGY \/ HEAD OF ECOLOGICAL MONITORING/);
+  assert.match(page, /OCEANOGRAPHY \/ HEAD OF MARINE RESOURCES/);
+  assert.match(page, /A newly hired Expedition agent/);
   assert.match(page, /onFocus=\{\(\) => setHoveredCharacterIndex\(index\)\}/);
   assert.match(page, /onPointerEnter=\{\(\) => setHoveredCharacterIndex\(index\)\}/);
   assert.doesNotMatch(page, /_sites-preview|SkeletonPreview/);
