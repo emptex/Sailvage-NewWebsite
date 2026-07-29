@@ -58,7 +58,7 @@ test("server-renders the complete English route and language switch", async () =
   assert.match(html, />GAMEPLAY<\/a>/i);
   assert.match(html, />CHARACTERS<\/a>/i);
   assert.match(html, /Beneath sunlit waves, everyone&#x27;s secrets begin to surface\./i);
-  assert.match(html, /EXPEDITION \/ B-RANK AGENT/i);
+  assert.match(html, /DEPARTMENT OF EXPEDITION \/ B-RANK AGENT/i);
   assert.match(html, /\/assets\/logos\/sailvage\.png/i);
   assert.doesNotMatch(html, /\/assets\/logos\/sailvage-cn\.png/i);
   assert.doesNotMatch(html, />专员</i);
@@ -104,9 +104,23 @@ test("keeps the Ark polish responsive and accessible", async () => {
   assert.match(page, /onPointerEnter=\{\(\) => setHoveredCharacterIndex\(index\)\}/);
   assert.doesNotMatch(page, /_sites-preview|SkeletonPreview/);
 
-  assert.match(englishPage, /ECOLOGY \/ HEAD OF ECOLOGICAL MONITORING/);
-  assert.match(englishPage, /OCEANOGRAPHY \/ HEAD OF MARINE RESOURCES/);
-  assert.match(englishPage, /A newly hired Expedition agent/);
+  assert.match(
+    englishPage,
+    /DEPARTMENT OF ECOLOGY \/ DEPARTMENT HEAD/,
+  );
+  assert.match(
+    englishPage,
+    /DEPARTMENT OF ECOLOGY \/ ECOLOGICAL MONITORING DIVISION DIRECTOR/,
+  );
+  assert.match(
+    englishPage,
+    /DEPARTMENT OF OCEANOGRAPHY \/ MARINE RESOURCES DIVISION DIRECTOR/,
+  );
+  assert.match(
+    englishPage,
+    /DEPARTMENT OF ECOLOGY \/ MICROECOLOGY DIVISION RESEARCHER/,
+  );
+  assert.match(englishPage, /A newly hired agent in the Department of Expedition/);
   assert.doesNotMatch(englishPage, /_sites-preview|SkeletonPreview/);
 
   assert.match(layout, /data-ark-theme="ark"/);
