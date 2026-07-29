@@ -86,6 +86,14 @@ test("keeps the Ark polish responsive and accessible", async () => {
   assert.match(css, /\.character-file\s*\{/);
   assert.match(
     css,
+    /\.site-header nav a\s*\{[^}]*font-weight:\s*400/s,
+  );
+  assert.match(
+    css,
+    /\.character-file\s*\{[^}]*padding:\s*50px 44% 28px/s,
+  );
+  assert.match(
+    css,
     /\.section-heading h2\s*\{[^}]*font-family:\s*var\(--font-serif\)/s,
   );
   assert.match(
