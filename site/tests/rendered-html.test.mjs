@@ -59,6 +59,8 @@ test("server-renders the complete English route and language switch", async () =
   assert.match(html, />CHARACTERS<\/a>/i);
   assert.match(html, /Beneath sunlit waves, everyone&#x27;s secrets begin to surface\./i);
   assert.match(html, /DEPARTMENT OF EXPEDITION \/ B-RANK AGENT/i);
+  assert.match(html, />FOLLOW US<\/h2>/i);
+  assert.doesNotMatch(html, /FOLLOW SAILVAGE/i);
   assert.match(html, /\/assets\/logos\/sailvage\.png/i);
   assert.match(html, /\/fonts\/jost-variable\.ttf/i);
   assert.doesNotMatch(html, /\/assets\/logos\/sailvage-cn\.png/i);

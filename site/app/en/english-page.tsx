@@ -261,7 +261,7 @@ const siteCopy = {
     charactersTitle: "CHARACTERS",
     characterSelector: "Character selection",
     contactArtAlt: "An agent inside the seaside base",
-    contactTitle: "FOLLOW SAILVAGE",
+    contactTitle: "FOLLOW US",
     wishlist: "WISHLIST ON STEAM",
     playtest: "REQUEST PLAYTEST",
     newsletter: "EMAIL UPDATES",
