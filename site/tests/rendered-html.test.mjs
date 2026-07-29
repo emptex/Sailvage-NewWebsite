@@ -65,9 +65,10 @@ test("server-renders the complete English route and language switch", async () =
 });
 
 test("keeps the Ark polish responsive and accessible", async () => {
-  const [css, page, layout] = await Promise.all([
+  const [css, page, englishPage, layout] = await Promise.all([
     readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
-    readFile(new URL("../app/sailvage-page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/en/english-page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
   ]);
 
@@ -96,12 +97,14 @@ test("keeps the Ark polish responsive and accessible", async () => {
   assert.doesNotMatch(css, /\.character-tabs button::after/);
 
   assert.match(page, /aria-pressed=\{isActive\}/);
-  assert.match(page, /ECOLOGY \/ HEAD OF ECOLOGICAL MONITORING/);
-  assert.match(page, /OCEANOGRAPHY \/ HEAD OF MARINE RESOURCES/);
-  assert.match(page, /A newly hired Expedition agent/);
   assert.match(page, /onFocus=\{\(\) => setHoveredCharacterIndex\(index\)\}/);
   assert.match(page, /onPointerEnter=\{\(\) => setHoveredCharacterIndex\(index\)\}/);
   assert.doesNotMatch(page, /_sites-preview|SkeletonPreview/);
+
+  assert.match(englishPage, /ECOLOGY \/ HEAD OF ECOLOGICAL MONITORING/);
+  assert.match(englishPage, /OCEANOGRAPHY \/ HEAD OF MARINE RESOURCES/);
+  assert.match(englishPage, /A newly hired Expedition agent/);
+  assert.doesNotMatch(englishPage, /_sites-preview|SkeletonPreview/);
 
   assert.match(layout, /data-ark-theme="ark"/);
   assert.match(layout, /data-ark-depth="complex"/);

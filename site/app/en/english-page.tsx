@@ -276,7 +276,8 @@ const siteCopy = {
   },
 } as const;
 
-export default function SailvagePage({ locale = "zh" }: { locale?: Locale }) {
+export default function EnglishPage() {
+  const locale: Locale = "en";
   const copy = siteCopy[locale];
   const isEnglish = locale === "en";
   const [activeCharacter, setActiveCharacter] = useState(characters[0]);

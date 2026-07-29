@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import SailvagePage from "../sailvage-page";
+import EnglishPage from "./english-page";
 
 export const metadata: Metadata = {
   title: "Sailvage | Studio EmpteX",
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function EnglishHome() {
-  return <SailvagePage locale="en" />;
+  return <EnglishPage />;
 }
