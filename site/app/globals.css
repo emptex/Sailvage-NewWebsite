@@ -787,6 +787,12 @@ img {
     1px 1px 0 var(--ink);
 }
 
+.locale-en {
+  --font-ui: "Jost", "Helvetica Neue", Arial, sans-serif;
+  --font-tech: "Jost", "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-ui);
+}
+
 .locale-en .section-heading h2 {
   font-size: clamp(48px, 5.9vw, 96px);
   letter-spacing: 0.04em;

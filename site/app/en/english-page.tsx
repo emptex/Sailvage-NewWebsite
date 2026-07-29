@@ -367,6 +367,14 @@ export default function EnglishPage() {
           font-weight: 400;
           src: url("${assetPath("/fonts/douyu-font.otf")}") format("opentype");
         }
+
+        @font-face {
+          font-display: swap;
+          font-family: "Jost";
+          font-style: normal;
+          font-weight: 100 900;
+          src: url("${assetPath("/fonts/jost-variable.ttf")}") format("truetype");
+        }
       `}</style>
       <header className="site-header">
         <a

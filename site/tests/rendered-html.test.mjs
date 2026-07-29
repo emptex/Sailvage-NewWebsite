@@ -60,6 +60,7 @@ test("server-renders the complete English route and language switch", async () =
   assert.match(html, /Beneath sunlit waves, everyone&#x27;s secrets begin to surface\./i);
   assert.match(html, /DEPARTMENT OF EXPEDITION \/ B-RANK AGENT/i);
   assert.match(html, /\/assets\/logos\/sailvage\.png/i);
+  assert.match(html, /\/fonts\/jost-variable\.ttf/i);
   assert.doesNotMatch(html, /\/assets\/logos\/sailvage-cn\.png/i);
   assert.doesNotMatch(html, />专员</i);
   assert.doesNotMatch(html, />三宅光</i);
@@ -94,6 +95,10 @@ test("keeps the Ark polish responsive and accessible", async () => {
   assert.match(
     css,
     /\.contact-panel h2\s*\{[^}]*font-family:\s*var\(--font-serif\)/s,
+  );
+  assert.match(
+    css,
+    /\.locale-en\s*\{[^}]*--font-ui:\s*"Jost"[^}]*--font-tech:\s*"Jost"[^}]*font-family:\s*var\(--font-ui\)/s,
   );
   assert.doesNotMatch(css, /\.locale-en [^{]*(?:section-heading|contact-panel)[^{]*\{[^}]*font-family:/s);
   assert.doesNotMatch(css, /\.locale-en \.feature-copy h3\s*\{[^}]*font-family:/s);
