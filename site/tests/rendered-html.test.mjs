@@ -108,7 +108,11 @@ test("keeps the Ark polish responsive and accessible", async () => {
   );
   assert.match(
     css,
-    /\.character-file \.role\s*\{[^}]*transform:\s*translateY\(-20px\)/s,
+    /\.locale-en \.character-file \.role\s*\{[^}]*transform:\s*translateY\(-20px\)/s,
+  );
+  assert.doesNotMatch(
+    css,
+    /(?<!\.locale-en )\.character-file \.role\s*\{[^}]*transform:/s,
   );
   assert.match(
     css,
