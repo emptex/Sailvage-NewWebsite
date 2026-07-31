@@ -1165,26 +1165,7 @@ footer a {
   }
 
   .site-header nav {
-    bottom: 0;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    left: 0;
-    position: fixed;
-    right: 0;
-    z-index: 60;
-  }
-
-  .site-header nav a {
-    background: rgba(7, 19, 28, 0.95);
-    color: white;
-    font-size: 11px;
-    padding: 14px 2px;
-    text-align: center;
-  }
-
-  .site-header nav a::after {
-    bottom: auto;
-    top: 0;
+    display: none;
   }
 
   .language-switch {
@@ -1193,25 +1174,30 @@ footer a {
   }
 
   .hero {
-    height: 78vh;
-    min-height: 590px;
+    aspect-ratio: 2880 / 1899;
+    height: auto;
+    margin-top: 64px;
+    min-height: 0;
   }
 
   .hero-art {
-    object-position: 54% center;
+    object-fit: contain;
+    object-position: center;
   }
 
   .steam-float {
     bottom: 45px;
     justify-content: center;
-    left: 0;
+    left: 50%;
     padding: 10px 16px;
-    right: 0;
+    right: auto;
+    transform: translateX(-50%);
+    width: 70%;
   }
 
   .steam-float:hover,
   .steam-float:focus-visible {
-    transform: none;
+    transform: translateX(-50%);
   }
 
   .section-pad {

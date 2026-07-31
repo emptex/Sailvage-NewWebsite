@@ -85,6 +85,18 @@ test("keeps the Ark polish responsive and accessible", async () => {
   assert.match(css, /prefers-reduced-motion:\s*reduce/);
   assert.match(css, /@media\s*\(max-width:\s*1240px\)/);
   assert.match(css, /@media\s*\(max-width:\s*760px\)/);
+  assert.match(
+    css,
+    /@media\s*\(max-width:\s*760px\)[\s\S]*?\.site-header nav\s*\{[^}]*display:\s*none/s,
+  );
+  assert.match(
+    css,
+    /@media\s*\(max-width:\s*760px\)[\s\S]*?\.hero\s*\{[^}]*aspect-ratio:\s*2880 \/ 1899[^}]*margin-top:\s*64px/s,
+  );
+  assert.match(
+    css,
+    /@media\s*\(max-width:\s*760px\)[\s\S]*?\.steam-float\s*\{[^}]*width:\s*70%/s,
+  );
   assert.match(css, /\.character-file\s*\{/);
   assert.match(
     css,
